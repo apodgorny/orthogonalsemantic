@@ -45,28 +45,34 @@ def build():
 				html_body = markdown.markdown(content)
 
 				full_html = f"""<!DOCTYPE html>
-<html>
+<html data-theme="dark">
 <head>
 <meta charset="utf-8">
 <title>{base_name}</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-<style>
-:root {
-  --font-size: 15px;
-  --line-height: 1.5;
-}
 
-main {
-  max-width: 720px;
+<link rel="stylesheet"
+ href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+<style>
+:root {{
+  --pico-font-size: 15px;
+  --pico-line-height: 1.55;
+}}
+
+main {{
+  max-width: 760px;
   margin: auto;
-}
+}}
+
+code, pre {{
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+}}
 </style>
+
 </head>
 <body>
-<header>
-<h1>Orthogonal Semantic Space</h1>
-</header>
-<main>
+<main class="container">
 {html_body}
 </main>
 </body>
