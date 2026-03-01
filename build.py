@@ -51,14 +51,15 @@ def build():
 <title>{base_name}</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 <style>
-:root {{
-  --bg: #0f1117;
-  --accent-bg: #151922;
-  --text: #e6edf3;
-  --border: #30363d;
-  --accent: #58a6ff;
-  --code: #c9d1d9;
-}}
+:root {
+  --font-size: 15px;
+  --line-height: 1.5;
+}
+
+main {
+  max-width: 720px;
+  margin: auto;
+}
 </style>
 </head>
 <body>
