@@ -49,9 +49,25 @@ def build():
 <head>
 <meta charset="utf-8">
 <title>{base_name}</title>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<style>
+:root {{
+  --bg: #0f1117;
+  --accent-bg: #151922;
+  --text: #e6edf3;
+  --border: #30363d;
+  --accent: #58a6ff;
+  --code: #c9d1d9;
+}}
+</style>
 </head>
 <body>
+<header>
+<h1>Orthogonal Semantic Space</h1>
+</header>
+<main>
 {html_body}
+</main>
 </body>
 </html>
 """
