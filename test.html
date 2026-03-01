@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="dark">
 <head>
 <meta charset="utf-8">
 <title>test</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+<link rel="stylesheet"
+ href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
 <style>
 :root {
-  --bg: #0f1117;
-  --accent-bg: #151922;
-  --text: #e6edf3;
-  --border: #30363d;
-  --accent: #58a6ff;
-  --code: #c9d1d9;
+  --pico-font-size: 15px;
+  --pico-line-height: 1.55;
+}
+
+main {
+  max-width: 760px;
+  margin: auto;
+}
+
+code, pre {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
 }
 </style>
+
 </head>
 <body>
-<header>
-<h1>Orthogonal Semantic Space</h1>
-</header>
-<main>
+<main class="container">
 <h1>foobar</h1>
 </main>
 </body>
