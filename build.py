@@ -49,7 +49,7 @@ def build():
 <head>
 <meta charset="utf-8">
 <title>{base_name}</title>
-<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 <style>
 :root {{
   --bg: #0f1117;
