@@ -1,7 +1,8 @@
 import os
+import shutil
 import markdown
 
-SOURCE = 'md'
+SOURCE = 'site'
 OUTPUT = 'html'
 
 
@@ -25,18 +26,23 @@ def build():
 		)
 
 		for file in files:
-			if file.endswith('.md'):
 
-				src_path = os.path.join(root, file)
+			src_path = os.path.join(root, file)
 
-				base_name = file[:-3]  # remove .md
-				base_name = normalize(base_name)
+			name, ext = os.path.splitext(file)
+			name = normalize(name)
+			ext = ext.lower()
 
-				os.makedirs(norm_dir, exist_ok=True)
+			os.makedirs(norm_dir, exist_ok=True)
+
+			# --------------------------------------------------------------
+			# Markdown → themed HTML
+			# --------------------------------------------------------------
+			if ext == '.md':
 
 				out_path = os.path.join(
 					norm_dir,
-					base_name + '.html'
+					name + '.html'
 				)
 
 				with open(src_path, 'r', encoding='utf-8') as f:
@@ -48,7 +54,7 @@ def build():
 <html data-theme="dark">
 <head>
 <meta charset="utf-8">
-<title>{base_name}</title>
+<title>{name}</title>
 
 <link rel="stylesheet"
  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
@@ -81,6 +87,18 @@ code, pre {{
 
 				with open(out_path, 'w', encoding='utf-8') as out:
 					out.write(full_html)
+
+			# --------------------------------------------------------------
+			# Everything else → copy 1:1
+			# --------------------------------------------------------------
+			else:
+
+				out_path = os.path.join(
+					norm_dir,
+					name + ext
+				)
+
+				shutil.copy2(src_path, out_path)
 
 
 if __name__ == '__main__':
